@@ -15,6 +15,26 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.get('/', (req, res) => {
   res.send('Hello from the MongoDB Backend!');
 });
+// API Endpoints
+app.post('/add-data', async (req, res) => {
+  const { name, age } = req.body;
+  const newData = new DataModel({ name, age });
+  try {
+    await newData.save();
+    res.status(201).json({ message: 'Data added successfully!' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/get-data', async (req, res) => {
+  try {
+    const data = await DataModel.find();
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 // Start server
 const PORT = process.env.PORT || 5000;
