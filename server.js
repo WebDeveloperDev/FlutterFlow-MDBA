@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const usersModel=require('users.js');
+const usersModel=require('/users.js');
 const app = express();
 
 // Middleware to parse JSON
