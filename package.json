@@ -1,16 +1,24 @@
 {
-  "name": "test-project",
+  "name": "flutterflow-mdba",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "devendra",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDeveloperDev/FlutterFlow-MDBA.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebDeveloperDev/FlutterFlow-MDBA/issues"
+  },
+  "homepage": "https://github.com/WebDeveloperDev/FlutterFlow-MDBA#readme",
   "dependencies": {
-    "cookie-parser": "^1.4.6",
-    "express": "^4.18.2",
-    "mongoose": "^8.1.3"
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4"
   }
 }

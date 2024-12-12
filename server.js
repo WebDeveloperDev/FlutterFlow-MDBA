@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 // MongoDB connection
-const uri = "mongodb+srv://talk2devendrasolanki:<db_password>@cluster0.33jhnfk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://talk2devendrasolanki:JfVPHJkw75kvbY7u@cluster0.33jhnfk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
