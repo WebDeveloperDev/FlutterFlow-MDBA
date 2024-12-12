@@ -1,31 +1,37 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const usersModel=require('users.js');
 const app = express();
 
 // Middleware to parse JSON
 app.use(express.json());
-
-// MongoDB connection
-const uri = "mongodb+srv://talk2devendrasolanki:JfVPHJkw75kvbY7u@cluster0.33jhnfk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error(err));
 
 // Sample endpoint
 app.get('/', (req, res) => {
   res.send('Hello from the MongoDB Backend!');
 });
 // API Endpoints
-app.post('/add-data', async (req, res) => {
-  const { name, age } = req.body;
-  const newData = new DataModel({ name, age });
-  try {
-    await newData.save();
-    res.status(201).json({ message: 'Data added successfully!' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+router.post('/signup',async (req,res)=>{
+    var info=req.body
+    try {
+        var result=await usersModel.account.find({username:info.username})
+        res.send({status:"failed"})
+        var newUser = new usersModel.account({
+            name: info.name,
+            username: info.username,
+            password: info.password
+         });
+         newUser.save()
+              .then(savedUser=>{
+                  console.log('data saved')
+              })
+              .catch(err => {
+                  console.log("Error :",err);
+              });
+    } catch (error) {
+        console.log(error)
+    }      
+})
 
 app.get('/get-data', async (req, res) => {
   try {
