@@ -1,6 +1,6 @@
 var mongoose=require('mongoose')
 // const url = "mongodb+srv://talk2devendrasolanki:JfVPHJkw75kvbY7u@cluster0.33jhnfk.mongodb.net/?retryWrites=true&w=majority";
-const url = "mongodb+srv://talk2devendrasolanki:JfVPHJkw75kvbY7u@cluster0.33jhnfk.mongodb.net/looter?retryWrites=true&w=majority";
+const url = "mongodb+srv://talk2devendrasolanki:JfVPHJkw75kvbY7u@cluster0.33jhnfk.mongodb.net/test?retryWrites=true&w=majority";
 
 mongoose.connect(url)
 
